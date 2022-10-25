@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_4</title>
+</head>
+<body>
+    <form id="calculator">
+        <input type="text" name="digit1">
+        <input type="text" name="digit2">
+        <input type="submit" value="Рассчитать">
+        Результат: <span id="result"></span>
+     </form>
+     <script>
+        var url = window.location.href;
+        var params = url.split('?');
+        var digits = params[1].split('&');
+        var numbers = digits.map(function(item){
+          return Number(item.split('=')[1]);
+        });
+        var c = numbers[0] + numbers[1];
+        document.getElementById("result").innerHTML = c;
+      </script>
+</body>
+</html>
