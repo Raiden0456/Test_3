@@ -41,5 +41,29 @@ function sklonenie($number)
 
 }
 
-echo sklonenie(1677334235);
+echo sklonenie(1677334235) . PHP_EOL;
+
+
+$tree = array(
+    'level 1' => array('level 1.1', 'level 1.2'),
+    'level 2',
+    'level 3' => array('level 3.1', 'level 3.2' => array('level 3.2.1', 'level 3.2.2'), 'level 3.3'),
+    'level 4' => array('level 4.1', 'level 4.2', 'level 4.3', 'level 4.4'),
+ );
+
+
+    function drawTree($tree, $level = 0)
+    {
+        foreach ($tree as $key => $value) {
+            if (is_array($value)) {
+                echo str_repeat(' ', $level * 4) . $key . PHP_EOL;
+                drawTree($value, $level + 1);
+            } else {
+                echo str_repeat(' ', $level * 4) . $value . PHP_EOL;
+            }
+            $level++;
+        }
+    }
+    drawTree($tree);
+   
 ?>
